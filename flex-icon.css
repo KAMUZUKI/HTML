@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.flex-icon {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	right: 30px;
+	bottom: 90px;
+}
+.flex-icon img {
+	height: 60px;
+	width: 60px;
+	opacity: 0.6;
+}
+.flex-icon:hover{
+	transform: scale(0.9,0.9);
+}
+.flex-icon img:hover {
+	transform: scale(0.9,0.9);
+}

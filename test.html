@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>点击改变图片</title>
+    </head>
+    
+    <body>	
+<img src="IMAGE/icon/tobarShare.png" class="pic_size" id="pic" onClick="change()" alt=""/>
+
+<script>
+	function change(){
+	var imgObj = document.getElementsByClassName("pic_size");
+	var Flag=(imgObj.getAttribute("src",2)=="IMAGE/icon/tobarShare.png")
+	imgObj.src=Flag?"IMAGE/icon/tobarShareactive.png":"IMAGE/icon/tobarShare.png";
+	}
+</script>
+    </body>
+</html>

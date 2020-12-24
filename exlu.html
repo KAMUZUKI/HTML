@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图ex</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        
+        #lun {
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+            position: absolute;
+            /*border:1px solid red;*/
+        }
+        
+        #lun>ul>li {
+            display: none;
+        }
+        
+        #lun ul .active {
+            display: block;
+        }
+        
+        #lun ul li img {
+            display: block;
+            width: 100%;
+        }
+        
+        #lun #num_list {
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            bottom: 0px;
+            opacity: 0.5;
+        }
+        
+        #lun #num_list ul {
+            float: right;
+            margin-right: 100px;
+        }
+        
+        #lun #num_list li {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        #lun #num_list li span {
+            width: 8px;
+            height: 8px;
+            color: white;
+            border: 2px solid #ADADAD;
+            text-align: center;
+            line-height: 10px;
+            border-radius: 50%;
+            display: block;
+            background: black;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+        
+        #lun #num_list li .active_num {
+            background: #EFEFEF;
+        }
+        /*设置箭头的样式*/
+        
+        #lun_left,
+        #lun_right {
+            width: 26px;
+            height: 68px;
+            background: black;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            line-height: 68px;
+            opacity: 0.3;
+            position: absolute;
+            display: none;
+        }
+        
+        #lun_left {
+            top: 193px;
+            left: 234px;
+        }
+        
+        #lun_right {
+            top: 193px;
+            right: 0px;
+        }
+    </style>
+ 
+</head>
+ 
+<body>
+    <div id="lun">
+        <ul>
+            <li class="active"><img src="IMAGE/banner/xjp.png" alt=""></li>
+            <li><img src="IMAGE/change5-7.jpg" alt=""></li>
+            <li><img src="IMAGE/banner/sbpk.jpg" alt=""></li>
+            <li><img src="IMAGE/news8-11.jpg" alt=""></li>
+            <li><img src="IMAGE/news8-10.jpg" alt=""></li>
+            <li><img src="" alt=""></li>
+        </ul>
+        <div id="num_list">
+            <ul>
+                <li><span class="active_num"></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+            </ul>
+        </div>
+ 
+        <!-- 向左的箭头 -->
+        <div id="lun_left">
+            </div>
+                <!-- 向右的箭头 -->
+                <div id="lun_right"></div>
+        	</div>
+    <script type="text/javascript">
+        //轮播图的特效
+ 
+        var lis = document.getElementById('lun').children[0].children;
+        //console.log(lis);
+ 
+        //获取所有的数组li
+        var num_lis = document.getElementById('num_list').children[0].children;
+        //console.log(num_lis);
+ 
+        //lis 长度为6 下标从0开始
+        //设置i 下标,表示第几张图片
+ 
+        var i = 0;
+        //设置轮播图是否已经启动的标志
+        var run = null;
+        // 获取左箭头/右箭头
+        var lun_left = document.getElementById('lun_left');
+        var lun_right = document.getElementById('lun_right');
+ 
+        //设置定时器函数
+        function autoRun() {
+            run = setInterval(function() {
+                //当前显示的图片要隐藏
+                lis[i].removeAttribute('class');
+                //当前显示激活的数字背景要被移除
+                num_lis[i].children[0].removeAttribute('class');
+ 
+                //i下标 自增 表示下一章
+                i++;
+                //如果循环到了最后一张图片
+                if (i == lis.length) {
+                    i = 0;
+                }
+                //下一章显示
+                lis[i].className = 'active';
+                //下一个数字背景设置为激活
+                num_lis[i].children[0].className = 'active_num';
+            }, 1500);
+        }
+        // 第一次进入该页面，调用轮播函数
+        autoRun();
+ 
+        //给每一张图都设置鼠标计入,移除事件
+        for (var j = 0; j < lis.length; j++) {
+            lis[j].onmouseover = function() {
+                    clearInterval(run);
+                    //显示左右箭头
+                    lun_left.style.display = 'block';
+                    lun_right.style.display = 'block';
+ 
+                }
+                //当鼠标离开时
+            lis[j].onmouseout = function() {
+                //在此调用函数
+                autoRun();
+ 
+                //隐藏左右箭头
+                lun_left.style.display = 'none';
+                lun_right.style.display = 'none';
+            }
+        }
+        //给每一个数字都设置鼠标的移入,移出事件
+        for (var k = 0; k < num_lis.length; k++) {
+            //将数字对应的小标绑定到每一个span中
+            num_lis[k].firstElementChild.setAttribute('num', k);
+            //移入事件
+            num_lis[k].onmouseover = function() {
+                    //停止计时器
+                    clearInterval(run);
+                    //移出之前的元素的 图片
+                    lis[i].className = '';
+                    // 数字列表位置的背景移除
+                    num_lis[i].firstElementChild.className = '';
+ 
+                    //上面的图片对应的当前的数字进行显示
+                    i = this.firstElementChild.getAttribute('num');
+ 
+                    lis[i].className = 'active';
+                    //当前数字
+                    num_lis[i].firstElementChild.className = 'active_num';
+ 
+ 
+                }
+                //移出
+            num_lis[k].onmouseout = function() {
+                //重新启动定时器
+                autoRun();
+            }
+        }
+        // 当鼠标移入、移除 num_list div时相应的停止、开始
+        num_list.onmouseover = function() {
+            // 停止
+            clearInterval(run);
+        }
+ 
+        num_list.onmouseout = function() {
+                // 先清除，再调用
+                clearInterval(run);
+ 
+                // 调用函数
+                autoRun();
+            }
+            //给右箭头设置over和out事件
+        lun_right.onmouseover = function() {
+            lun_left.style.display = 'block';
+            lun_right.style.display = 'block';
+ 
+            // 停止定时器
+            clearInterval(run);
+        }
+        lun_right.onmouseout = function() {
+                // 隐藏左右箭头
+                lun_left.style.display = 'none';
+                lun_right.style.display = 'none';
+ 
+                // 启动定时器
+                autoRun();
+            }
+            //当单机右箭头时,图片向前
+        lun_right.onclick = function() {
+                //将之前显示的图片,数字隐藏
+                lis[i].className = '';
+                //数字列表位置的北京移除
+                num_lis[i].firstElementChild.className = '';
+                //i++之后显示新的
+                i++;
+                if (i == lis.length) {
+                    i = 0;
+                }
+ 
+                //新图
+                lis[i].className = 'active';
+                //数字列表位置的背景移除
+                num_lis[i].firstElementChild.className = 'active_num';
+ 
+ 
+ 
+            }
+            // 给左箭头设置over和out事件
+        lun_left.onmouseover = function() {
+            // 显示左右箭头
+            lun_left.style.display = 'block';
+            lun_right.style.display = 'block';
+ 
+            // 停止定时器
+            clearInterval(run);
+        }
+        lun_left.onmouseout = function() {
+            // 隐藏左右箭头
+            lun_left.style.display = 'none';
+            lun_right.style.display = 'none';
+ 
+            // 启动定时器
+            autoRun();
+        }
+ 
+        // 当单击右箭头时，图片向前
+        lun_left.onclick = function() {
+            // 将之前显示的图片、数字隐藏
+            lis[i].className = '';
+            // 数字列表位置的背景移除
+            num_lis[i].firstElementChild.className = '';
+ 
+            // i的值如果是0，表示当前已经是第一张
+ 
+            // i++ 之后，显示新的
+            i--;
+ 
+            // 判断临界点
+            if (i < 0) {
+                // 下标的最大值 = 长度 - 1
+                i = lis.length - 1;
+            }
+ 
+            // 新图
+            lis[i].className = 'active';
+            // 数字列表位置的背景移除
+            num_lis[i].firstElementChild.className = 'active_num';
+        }
+ 
+        //二级菜单over 事件
+        var content_tl = document.getElementsByClassName('content-tl')[0].children[0].children;
+        //	var content_tllfa=document.getElementsByClassName('content_tllfa')[0];
+        //	console.log(content_tl);	
+        //	console.log(lis);
+        for (var k = 0; k < content_tl.length; k++) {
+            // 鼠标进入
+            content_tl[k].onmouseover = function() {
+                this.children[1].style.display = 'block';
+                // console.log(this.children[2]);
+ 
+                $('.content_tllfa>span').mouseover(function() {
+                    $(this).css('color', '#ff6700');
+                }).mouseout(function() {
+                    $(this).css('color', '');
+                })
+                $('.xuangou').mouseover(function() {
+                    $(this).css('color', '#FFF').css('background', '#ff6700');
+ 
+                }).mouseout(function() {
+                    $(this).css('color', '').css('background', '');
+                });
+            }
+ 
+            // 鼠标离开
+            content_tl[k].onmouseout = function() {
+ 
+                // 当鼠标离开时，儿子ul隐藏
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+ 
+</html>

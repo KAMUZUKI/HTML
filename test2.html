@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style>
+		* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			/*去除横向滚动条*/
+			body {
+				overflow-x: hidden;
+			}
+			/*将div铺满整个窗口*/
+			.box {
+				height: 100vh;
+				min-height: 520px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			/*设置大ul的大小及定位*/
+			.content {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			/*设置大li样式*/
+			.content li {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-position: center;
+				background-clip: border-box;
+				background-size: cover;
+			}
+			/*将第一张图片后的图片隐藏*/
+			#li1~li{display: none;}
+			/*设置大li背景图片*/
+			#li1 {background-image: url("IMAGE/show/img (1).jpg");}
+			#li2 {background-image: url("IMAGE/show/img (2).jpg");}
+			#li3 {background-image: url("IMAGE/show/img (3).jpg");}
+			/*点击a标签,切换大图片*/
+			#li1:target,
+			#li2:target,
+			#li3:target{
+				display: block;
+			}
+			/*定位*/
+			.conlist {
+				position: absolute;
+				bottom: 0;
+			}
+			/*设置li的样式*/
+			.conlist li {
+				position: relative;
+				float: left;
+				width: 180px;
+				height: 1px;
+				display: block;
+				border: 3px solid #fff;
+				border-radius: 10px;
+				margin-right: 10px;
+				text-align: center;
+				list-style: none;
+			}
+			/*给li设置背景颜色*/
+			.conlist li:first-child {background: #00ff00;}
+			.conlist li:nth-child(2) {background: #00ff00;}
+			.conlist li:nth-child(3) {background: #66FF00;}
+
+			/*设置a标签的样式*/
+			.conlist a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				border: 3px solid #fff;
+				border-radius: 75px;
+				background-position: center;
+				background-clip: border-box;
+				background-size: cover;
+				left: 10%;
+				top: -50%;
+			}
+			/*设置a标签的背景图片*/
+			.a1 {background-image: url("IMAGE/show/img (1).jpg");}
+			.a2 {background-image: url("IMAGE/show/img (2).jpg");}
+			.a3 {background-color: rgba(255,255,255,0);}
+			.change-img{
+				position: absolute;
+				margin-right: 100px;
+				margin-top: 50px;
+				height: 100px;
+				width: 300px;
+
+			}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+			
+		</div>
+</body>
+</html>

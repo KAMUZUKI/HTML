@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+#lun {
+	width: 900px;
+	height: 550px;
+	margin: 0 auto;
+	position: absolute;
+}
+
+#lun>ul>li {
+	display: none;
+}
+
+#lun ul .active {
+	display: block;
+}
+
+#lun ul li img {
+	display: block;
+	width: 100%;
+}
+
+#lun #num_list {
+	width: 100%;
+	height: 30px;
+	position: absolute;
+	bottom: 66px;
+	opacity: 0.5;
+}
+
+#lun #num_list ul {
+	float: right;
+	margin-right: 100px;
+}
+
+#lun #num_list li {
+	float: left;
+	height: 30px;
+	line-height: 30px;
+}
+
+#lun #num_list li span {
+	width: 12px;
+	height: 12px;
+	color: white;
+	border: 2px solid #ADADAD;
+	text-align: center;
+	line-height: 10px;
+	border-radius: 50%;
+	display: block;
+	background: black;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+#lun #num_list li .active_num {
+	background: #EFEFEF;
+}
+/*设置箭头的样式*/
+
+#lun_left,#lun_right {
+	width: 26px;
+	height: 68px;
+	background: black;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	line-height: 68px;
+	opacity: 0.3;
+	position: absolute;
+	display: none;
+}
+
+#lun_left {
+	top: 211px;
+}
+
+#lun_right {
+	top: 211px;
+	right: 0px;
+}
+
