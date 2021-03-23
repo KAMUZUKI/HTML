@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>导航栏</title>
+        <style>
+            body{background: whitesmoke;font-size: 14px;margin: 0;}
+            nav ul li{list-style: none;}
+            a {text-decoration: none;}
+            .container{width: 1000px; margin: auto;}
+            nav {background: #1A66B3;}
+            nav ul {font-size: 0;margin: 0;padding: 0;}
+            nav ul li {display: inline-block;}
+            nav ul li a {
+                color: #fff;
+                display: block;
+                font-size: 14px;
+                padding: 15px 14px;
+                transition: 0.3s linear;
+            }
+            nav ul li:hover {background: #126d9b;}
+            nav ul li ul {
+                border-bottom: 5px solid #2ba0db;
+                display: none;
+                position: absolute;
+                width: 250px;
+            }
+            nav ul li ul li {
+                border-top: 1px solid #444;
+                display: block;
+            }
+            
+            nav ul li ul li:first-child {
+                border-top: none;
+            }
+            
+            nav ul li ul li a {
+                background:cadetblue;
+                display: block;
+                padding: 10px 14px;
+            }
+            
+            nav ul li ul li a:hover {
+                background: #126d9b;
+            }
+            
+            nav .fa.fa-angle-down {
+                margin-left: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于</a></li>
+                <li>
+                <a href="#">类别<i class='fa fa-angle-down'></i></a>
+                    <ul>
+                        <li><a href="#">类别1</a></li>
+                        <li><a href="#">类别2</a></li>
+                        <li><a href="#">类别3</a></li>
+                    </ul>
+                </li>
+                <li class='sub-menu'>
+                <a href="#">服务<i class='fa fa-angle-down'></i></a>
+                    <ul>
+                        <li><a href="#">服务1</a></li>
+                        <li><a href="#">服务2</a></li>
+                        <li><a href="#">服务3</a></li>
+                        <li><a href="#">服务4</a></li>
+                        <li><a href="#">服务5</a></li>
+                        <li><a href="#">服务6</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+            </div>
+        </nav>
+<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+<script>
+$('nav li').hover(
+    function() {
+        $('ul', this).stop().slideDown(200);
+    },
+    function() {
+    $('ul', this).stop().slideUp(200);
+    }
+);
+</script>
+    </body>
+</html>
+

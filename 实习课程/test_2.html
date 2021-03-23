@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+
+</head>
+<body>
+	<div id="player1" class="aplayer">
+		<pre class="aplayer-lrc-content">
+			[ti:断桥残雪]
+			[ar:Vae]
+			[al:断桥残雪（EP）]
+			[00:01.90]Vae - 断桥残雪
+			[00:05.16]词、曲 编曲：许嵩（Vae）
+			[00:08.16]
+			[00:24.99]寻不到花的折翼枯叶蝶
+			[00:30.09]永远也看不见凋谢
+			[00:36.90]江南夜色下的小桥屋檐
+			[00:42.04]读不懂塞北的荒野
+			[00:48.94]梅开时节因寂寞而缠绵
+			[00:54.07]春归后又很快湮灭
+			[01:01.21]独留我赏烟花飞满天
+			[01:06.03]摇曳后就随风飘远
+			[01:13.11]断桥是否下过雪
+			[01:15.83]我望着湖面
+			[01:18.77]水中寒月如雪
+			[01:21.78]指尖轻点融解
+			[01:24.81]断桥是否下过雪
+			[01:27.69]又想起你的脸
+			[01:30.66]若是无缘再见
+			[01:33.75]白堤柳帘垂泪好几遍
+			[02:03.83]寻不到花的折翼枯叶蝶
+			[02:09.12]永远也看不见凋谢
+			[02:15.84]江南夜色下的小桥屋檐
+			[02:21.17]读不懂塞北的荒野
+			[02:28.01]梅开时节因寂寞而缠绵
+			[02:33.09]春归后又很快湮灭
+			[02:39.79]独留我赏烟花飞满天
+			[02:45.19]摇曳后就随风飘远
+			[02:52.06]断桥是否下过雪
+			[02:54.83]我望着湖面
+			[02:57.80]水中寒月如雪
+			[03:00.82]指尖轻点融解
+			[03:03.85]断桥是否下过雪
+			[03:06.83]又想起你的脸
+			[03:09.90]若是无缘再见
+			[03:12.74]白堤柳帘垂泪好几遍
+		</pre>
+	</div>
+//JS部分
+	<script type="text/javascript">
+		//初始化APlayer音乐播放器插件。
+		var ap = new APlayer({
+			element: document.getElementById('player1'),
+			narrow: false,
+			autoplay: false, //是否自动播放
+			showlrc: true, //是否显示歌词
+			theme: '#66B7FF', //主题颜色
+			music: {
+				title: '断桥残雪',
+				author: '许嵩大人',
+				url: '/Content/Music/许嵩 - 断桥残雪.mp3',
+				pic: '/Content/Music/dqcx.jpg',
+			}
+		});
+		ap.init();
+	</script>
+	//引入JS部分
+	<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+	<link href="//cdn.bootcss.com/aplayer/1.4.8/APlayer.min.css" rel="stylesheet">
+	<script src="//cdn.bootcss.com/aplayer/1.4.8/APlayer.min.js"></script>
+</body>
+</html>

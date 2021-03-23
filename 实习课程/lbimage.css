@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+img{
+    width: 850px;
+    height: 500px;
+}
+.photo{
+    width: 900px;
+    height: 550px;
+    border: 1px solid #555555;
+ 	border-radius: 10px;
+	margin-top: 20px;
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0 10px 80px rgba(0,0,0,.6)
+}
+.photo input{
+    display: none;
+}
+.bannerimage{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 800px;
+    height: 450px;
+    margin: 25px 25px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.7s;
+}
+.bannerimage img{
+ 	border-radius: 10px;
+}
+.rotationp label{
+    width: 150px;
+    height: 500px;
+    margin: 25px 25px;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    display: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    color: #ffffff;
+    font-size: 50px;
+    line-height: 450px;
+    text-align: center;
+	text-shadow: 0 0 15px #555555);
+}
+.leftjianbian{
+    background: linear-gradient(right , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -o-linear-gradient(right , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -ms-linear-gradient(right , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -moz-linear-gradient(right , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -webkit-linear-gradient(right , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+}
+.rightjianbian{
+    background: linear-gradient(left , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -o-linear-gradient(left , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -ms-linear-gradient(left , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -moz-linear-gradient(left , rgba(250, 242, 239,0) 1% , rgba(158, 148, 166,0.5) 100%);
+    background: -webkit-linear-gradient(left , rgba(250, 242, 239,0) 10% , rgba(158, 148, 166,0.5) 100%);
+}
+.bannerimage:hover + .rotationp label{
+    opacity: 0.5;
+}
+.rotationp label:hover{
+    opacity: 1;
+}
+.rotationp .down{
+    right: 0;
+}
+input:checked + .control .bannerimage{
+    opacity: 1;
+    transform: scale(1);
+    transition: all 1s;
+}
+input:checked + .control .rotationp label{
+    display: block;
+}
+.dots{
+    width:100%;
+    height: 20px;
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    background: rgba(0,0,0,0.3);
+}
+input#img1:checked ~ .dots label#dot1,
+input#img2:checked ~ .dots label#dot2,
+input#img3:checked ~ .dots label#dot3,
+input#img4:checked ~ .dots label#dot4,
+input#img5:checked ~ .dots label#dot5,
+input#img6:checked ~ .dots label#dot6{
+    background: rgba(0,0,0,0.7);
+}
+
+
